@@ -64,17 +64,15 @@ const usersPut = async (req, res = response) => {
   });
 };
 
-const usersPatch = (req, res = response) => {
+const usersPatch = (req = request, res = response) => {
   res.json({
     msg: "patch API - Controller",
   });
 };
 
-const usersDelete = async (req, res = response) => {
+const usersDelete = async (req = request, res = response) => {
 
   const { id } = req.params;
-  // Fisicamente lo borramos
-  // const user = await User.findByIdAndDelete( id );
 
   // Cambiando el estado del usuario
   const user = await User.findByIdAndUpdate(id, {state: false});
